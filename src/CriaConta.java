@@ -15,5 +15,24 @@ public class CriaConta {
 		System.out.println("Segunda Conta: " + segundaConta.saldo);
 		
 		System.out.println(primeiraConta);
+		
+		System.out.println("---------------------------");
+		
+		Conta terceiraConta = new Conta();
+
+		System.out.println("Primeira Conta: " + primeiraConta.saldo);
+		primeiraConta.deposita(100);
+		System.out.println("Primeira conta apos deposito: " + primeiraConta.saldo);
+		
+		primeiraConta.saca(100);
+		System.out.println("Primeira conta apos saque: " + primeiraConta.saldo);
+		
+		System.out.println("Terceira conta: " + terceiraConta.saldo);
+
+		boolean sucessoTransferencia = primeiraConta.transfere(300, terceiraConta);
+		System.out.println(sucessoTransferencia);
+		System.out.println("Primeira Conta apos transferencia: " + primeiraConta.saldo);
+		System.out.println("Terceira Conta apos transferencia: " + terceiraConta.saldo);
+		
 	}
-}
+} 
