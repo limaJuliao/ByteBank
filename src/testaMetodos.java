@@ -1,5 +1,5 @@
 
-public class CriaConta {
+public class testaMetodos {
 	public static void main(String[] args) {
 		Conta primeiraConta = new Conta();
 		
@@ -34,5 +34,14 @@ public class CriaConta {
 		System.out.println("Primeira Conta apos transferencia: " + primeiraConta.saldo);
 		System.out.println("Terceira Conta apos transferencia: " + terceiraConta.saldo);
 		
+		// Testando composição de objetos
+		Cliente cliete = new Cliente();
+		Conta conta = new Conta();
+		
+		// Forma mais direta
+		Conta contaDaMarcela = new Conta();
+		contaDaMarcela.titular = new Cliente();
+		
+		contaDaMarcela.titular.nome = "Marcela";		
 	}
 } 
