@@ -2,10 +2,16 @@
 public class testaMetodos {
 	public static void main(String[] args) {
 		primeirosTestes();
-	}	
+		testaStatic();
+	}
+	
+	public static void testaStatic() {
+		System.out.println(Conta.getTotal());
+		
+	}
 	
 	public static void primeirosTestes() {
-		Conta primeiraConta = new Conta();
+		Conta primeiraConta = new Conta(333, 555);
 		
 //		primeiraConta.saldo = 200;
 		primeiraConta.deposita(200);
@@ -24,7 +30,7 @@ public class testaMetodos {
 		
 		System.out.println("---------------------------");
 		
-		Conta terceiraConta = new Conta();
+		Conta terceiraConta = new Conta(111, 222);
 
 		System.out.println("Primeira Conta: " + primeiraConta.getSaldo());
 		primeiraConta.deposita(100);
@@ -42,14 +48,13 @@ public class testaMetodos {
 		
 		// Testando composição de objetos
 		Cliente cliente = new Cliente();
-		Conta conta = new Conta();
+		Conta conta = new Conta(123, 456);
 		
 		cliente.setNome("marcela");		
 		
 		// Forma mais direta
-		Conta contaDaMarcela = new Conta();
-		contaDaMarcela.setTitular(cliente);
-		
+		Conta contaDaMarcela = new Conta(456, 789);
+		contaDaMarcela.setTitular(cliente);	
 		
 		
 //		contaDaMarcela.titular = new Cliente();
