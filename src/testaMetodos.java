@@ -1,8 +1,89 @@
 
 public class testaMetodos {
 	public static void main(String[] args) {
-		primeirosTestes();
-		testaStatic();
+//		primeirosTestes();
+		
+//		testaStatic();
+		
+//		TestaFuncionario();
+		
+//		TesteGerente();
+		
+//		testeReferencias();
+		
+//		testeConta();
+		
+		testeSistema();
+	}
+	
+	public static void testeSistema() {
+		Gerente gerente = new Gerente();
+		gerente.setSenha("2222");
+		
+		SistemaInterno si = new SistemaInterno();
+		
+		si.autentica(gerente);
+	}
+	
+	public static void testeConta() {
+		ContaCorrente cc = new  ContaCorrente(123, 123);
+		ContaPoupanca cp = new ContaPoupanca(456, 789);
+		
+		cc.deposita(1000);
+		cc.transfere(500, cp);
+		
+		System.out.println("Corrente: " + cc.getSaldo() +
+				"\nPoupança: " + cp.getSaldo());
+	}
+	
+	public static void testeReferencias() {
+		Gerente g = new Gerente();
+		g.setNome("Manuel");
+		g.setSalario(5000);
+		
+		EditorVideo ed = new EditorVideo();
+		ed.setNome("Gilson");
+		ed.setSalario(2000);
+		
+		Designer d = new Designer();
+		d.setNome("Elaine");
+		d.setSalario(1000);
+		
+		ControleBonificacao cb = new ControleBonificacao();
+		cb.registra(g);
+		cb.registra(ed);
+		cb.registra(d);
+		
+		System.out.println("Total em bonificações: " + cb.getSoma());
+	}	
+	
+	public static void TesteGerente() {
+
+		Gerente gerente = new Gerente();
+		gerente.setNome("Julio Cesar");
+		gerente.setCpf("11122233344");
+		gerente.setSalario(5000);
+		gerente.setSenha("12345");
+		
+		boolean autenticou = gerente.autenticaSenha("12345");
+		
+		System.out.println("Nome: " + gerente.getNome() + 
+				"\nCPF: " + gerente.getCpf() +
+				"\nSalário: " + gerente.getSalario() +
+				"\nBonificação: " + gerente.getBonificacao() +
+				"\nAutentica Senha: " + autenticou);
+	}
+	
+	public static void TestaFuncionario() {
+		Funcionario funcionario = new Gerente();
+		funcionario.setNome("Julio Cesar");
+		funcionario.setCpf("11122233344");
+		funcionario.setSalario(1700);
+		
+		System.out.println("Nome: " + funcionario.getNome() + 
+				"\nCPF: " + funcionario.getCpf() +
+				"\nSalário: " + funcionario.getSalario() +
+				"\nBonificação: " + funcionario.getBonificacao());
 	}
 	
 	public static void testaStatic() {
@@ -11,7 +92,7 @@ public class testaMetodos {
 	}
 	
 	public static void primeirosTestes() {
-		Conta primeiraConta = new Conta(333, 555);
+		ContaCorrente primeiraConta = new ContaCorrente(333, 555);
 		
 //		primeiraConta.saldo = 200;
 		primeiraConta.deposita(200);
@@ -30,7 +111,7 @@ public class testaMetodos {
 		
 		System.out.println("---------------------------");
 		
-		Conta terceiraConta = new Conta(111, 222);
+		ContaCorrente terceiraConta = new ContaCorrente(111, 222);
 
 		System.out.println("Primeira Conta: " + primeiraConta.getSaldo());
 		primeiraConta.deposita(100);
@@ -48,12 +129,12 @@ public class testaMetodos {
 		
 		// Testando composição de objetos
 		Cliente cliente = new Cliente();
-		Conta conta = new Conta(123, 456);
+		ContaCorrente conta = new ContaCorrente(123, 456);
 		
 		cliente.setNome("marcela");		
 		
 		// Forma mais direta
-		Conta contaDaMarcela = new Conta(456, 789);
+		ContaCorrente contaDaMarcela = new ContaCorrente(456, 789);
 		contaDaMarcela.setTitular(cliente);	
 		
 		
